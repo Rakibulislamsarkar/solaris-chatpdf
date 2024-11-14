@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-
-import { ReactLenis } from "lenis/react";
+import { ClerkProvider } from "@clerk/nextjs";
+import { ReactLenis, useLenis } from "lenis/react";
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,7 +25,7 @@ const customFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Solaris",
+  title: "ChatPdf",
   description:
     "Instantly converse with your documents—upload, ask questions, and get answers effortlessly",
   icons: [{ rel: "icon", url: "logo.svg" }],
@@ -36,17 +37,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ReactLenis root options={{ autoRaf: true }}>
+    <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${customFont.variable} antialiased`}
           suppressHydrationWarning
         >
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-            {children}
+            <ReactLenis root options={{ autoRaf: true }}>
+              {children}
+            </ReactLenis>
           </ThemeProvider>
         </body>
       </html>
-    </ReactLenis>
-  );
+    </ClerkProvider>
+  )
 }

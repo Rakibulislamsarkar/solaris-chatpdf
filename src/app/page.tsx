@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button";
 import { HoverCardDemo } from "@/components/hover-card";
 import {
@@ -30,6 +29,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { Navigation } from "@/components/navbar";
 import { SparklesPreview } from "@/components/SparklesPreview";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,7 +67,6 @@ export default function Home() {
       </nav>
 
       <MaxWidthWrapper className="mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center min-h-[40vh]">
-        <BackgroundBeams />
         <div className="flex flex-col items-center justify-center gap-4">
           <Badge variant="outline">Solaris is now public</Badge>
           <h1 className="max-w-6xl font-[customFont] text-3xl md:text-5xl lg:text-[53.94px] leading-8 tracking-[-0.2px] sm:leading-[40px] md:tracking-[0.5px] md:leading-[50px] lg:tracking-[-2.0788px] lg:leading-[60.334px]">
@@ -80,22 +79,18 @@ export default function Home() {
           </p>
         </div>
         <div className="flex gap-6 md:gap-10 mt-5">
-          <Link href="/sign-up">
-            <Button variant="default" className="px-6 py-5">
+          <Button className="cursor-pointer px-6 py-5" asChild>
+            <Link href="/login">
               Get Started
-              <LogIn className="w-3 h-4 md:w-4 md:h-6 lg:w-5 lg:h-7 ml-2" />
-            </Button>
-          </Link>
-          <Link
-            className={buttonVariants({
-              variant: "outline",
-              size: "lg",
-              className: "px-6 py-5 hover:underline",
-            })}
-            href="/pricing"
-          >
-            Try Premium <MoveRight className="ml-3" />
-          </Link>
+              <LogIn className="ml-3" />
+            </Link>
+          </Button>
+
+          <Button className="cursor-pointer px-6 py-5 hover:underline" asChild variant="outline">
+            <Link href="/login">
+              Try Premium <MoveRight className="ml-3" />
+            </Link>
+          </Button>
         </div>
       </MaxWidthWrapper>
 
