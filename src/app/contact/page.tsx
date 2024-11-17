@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { HoverCardDemo } from "@/components/hover-card";
 import {
   Form,
   FormControl,
@@ -27,6 +28,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Link from "next/link";
 
 const formSchema = z.object({
   name_2845957498: z
@@ -64,17 +66,19 @@ export default function EnhancedForm() {
 
   return (
     <div className="flex justify-between h-screen">
-      <div className="hidden lg:block lg:w-7/12 bg-[#18181B] text-white p-6">
-        {/* Content for the left side div */}
-        <div className="p-4 flex flex-col justify-between h-full">
-          <div className="flex items-center gap-2">
-          <img src="/logo.svg" alt="logo" className="w-10" />
-          <h1 className="font-[customfont] text-xl">Solaris</h1>
+      <div className="hidden lg:block lg:w-7/12 bg-primary">
+        <div className="flex flex-col justify-between h-full p-10">
+          <div>
+            <Link href='/'>
+            <HoverCardDemo /></Link>
           </div>
-          <p className="text-base mb-10">
-            Get in touch with us! Fill out the form, and our team will get back
-            to you as soon as possible.
-          </p>
+          <div>
+            {" "}
+            <p className="text-base mb-10 text-white">
+              Get in touch with us! <br/> Fill out the form, and our team will get
+              back to you as soon as possible.
+            </p>
+          </div>
         </div>
       </div>
       <div className="w-full lg:w-5/12 p-4 lg:p-8 overflow-y-auto">
