@@ -1,13 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { HoverCardDemo } from "@/components/hover-card";
 import {
   Form,
   FormControl,
@@ -28,7 +25,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Link from "next/link";
+import {
+  Breadcrumb,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+  BreadcrumbLink,
+  BreadcrumbItem,
+  BreadcrumbList,
+} from "@/components/ui/breadcrumb";
 
 const formSchema = z.object({
   name_2845957498: z
@@ -66,17 +70,30 @@ export default function EnhancedForm() {
 
   return (
     <div className="flex justify-between h-screen">
-      <div className="hidden lg:block lg:w-7/12 bg-primary">
+      <div className="hidden lg:block lg:w-7/12">
         <div className="flex flex-col justify-between h-full p-10">
           <div>
-            <Link href='/'>
-            <HoverCardDemo /></Link>
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem className="hidden md:block">
+                  <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="hidden md:block" />
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="/dashboard">Dashboard</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="hidden md:block" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Contact</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
           </div>
           <div>
             {" "}
-            <p className="text-base mb-10 text-white">
-              Get in touch with us! <br/> Fill out the form, and our team will get
-              back to you as soon as possible.
+            <p className="text-base mb-10">
+              Get in touch with us! <br /> Fill out the form, and our team will
+              get back to you as soon as possible.
             </p>
           </div>
         </div>
