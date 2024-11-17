@@ -25,7 +25,7 @@ const customFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "ChatPdf",
+  title: "Solaris",
   description:
     "Instantly converse with your documents—upload, ask questions, and get answers effortlessly",
   icons: [{ rel: "icon", url: "logo.svg" }],

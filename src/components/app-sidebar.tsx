@@ -30,9 +30,9 @@ import Link from 'next/link';
 // Menu items.
 const data = {
   user: {
-    name: "shadcn",
+    name: "rabbi",
     email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    avatar: "/rabbi.jpg",
   },
 };
 
