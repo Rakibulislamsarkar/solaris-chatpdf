@@ -80,14 +80,14 @@ export default function Home() {
         </div>
         <div className="flex gap-6 md:gap-10 mt-5">
           <Button className="cursor-pointer px-6 py-5" asChild>
-            <Link href="/login">
+            <Link href="/dashboard">
               Get Started
               <LogIn className="ml-3" />
             </Link>
           </Button>
 
           <Button className="cursor-pointer px-6 py-5 hover:underline" asChild variant="outline">
-            <Link href="/login">
+            <Link href="/upgrade">
               Try Premium <MoveRight className="ml-3" />
             </Link>
           </Button>
@@ -201,8 +201,10 @@ export default function Home() {
               Instant answers. Greater productivity. Endless inspiration.
             </h2>
             <div className="flex items-center justify-center flex-row gap-1 sm:gap-2 md:gap-3 flex-wrap">
-              <button className="bg-white text-black px-4 py-3 rounded-full text-base sm:text-sm font-medium transition hover:bg-gray-200 flex">
+              <button className="bg-white text-black px-4 py-3 rounded-full text-base sm:text-sm font-medium transition hover:bg-gray-200 ">
+                <Link href='/dashboard' className="flex">
                 Try Solaris <ArrowUpRight className="ml-2" size={18} />
+                </Link>
               </button>
             </div>
           </div>
