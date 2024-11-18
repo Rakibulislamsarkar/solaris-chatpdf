@@ -140,7 +140,7 @@ const FAQSection = memo(function FAQSection() {
   );
 });
 
-export default function Home() {
+export default async function Home() {
   // Optimized Hero Section
   const renderHero = () => (
     <MaxWidthWrapper className="mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center min-h-[40vh]">
