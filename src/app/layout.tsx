@@ -5,6 +5,8 @@ import { ReactLenis, useLenis } from "lenis/react";
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
+import Providers from "@/components/Providers";
+import {toast, Toaster} from "react-hot-toast"
 
 
 const geistSans = localFont({
@@ -38,6 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
+      <Providers>
       <html lang="en" suppressHydrationWarning>
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${customFont.variable} antialiased`}
@@ -49,7 +52,10 @@ export default function RootLayout({
             </ReactLenis>
           </ThemeProvider>
         </body>
+      <Toaster />
       </html>
+      </Providers>
+     
     </ClerkProvider>
   )
 }
